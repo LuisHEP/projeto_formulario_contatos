@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Contatos</title>
+    <style>
+        * {
+            color: yellow;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-style: italic;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        button {
+            color: mediumblue;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Lista de Contatos</h1>
+
+    <form id="contactForm">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="phone">Telefone:</label>
+        <input type="text" id="phone" name="phone" required><br><br>
+
+        <button type="button" onclick="addContact()">Cadastrar</button>
+    </form>
+
+    <table id="contactTable">
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+        </tr>
+    </table>
+
+    <script>
+        function addContact() {
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+
+            var table = document.getElementById("contactTable");
+            var newRow = table.insertRow(table.rows.length);
+
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+
+            cell1.innerHTML = name;
+            cell2.innerHTML = phone;
+
+            document.getElementById("name").value = "";
+            document.getElementById("phone").value = "";
+        }
+    </script>
+</body>
+</html>
